@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@android:color/background_dark"
+    tools:context="com.example.bharatkumar.meritas.MainActivity">
+
+    <TextView
+        android:id="@+id/t1"
+        android:text="@string/welcome"
+        android:textColor="@android:color/background_light"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        />
+    <TextView
+        android:id="@+id/t4"
+        android:layout_below="@id/t1"
+        android:text="@string/login"
+        android:textColor="@android:color/background_light"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        />
+
+    <TextView
+        android:id="@+id/t2"
+        android:layout_below="@id/t4"
+        android:textColor="@android:color/background_light"
+        android:text=" USERNAME: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+    <EditText
+        android:id="@+id/e1"
+        android:layout_toRightOf="@id/t2"
+        android:layout_alignBaseline="@id/t2"
+        android:hint="Enter the UserName"
+        android:textColor="@android:color/background_dark"
+        android:background="@android:drawable/editbox_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/t3"
+        android:layout_below="@id/t2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/background_light"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:text=" PASSWORD:"/>
+    <EditText
+        android:id="@+id/e2"
+        android:layout_alignBaseline="@id/t3"
+        android:layout_alignStart="@id/e1"
+        android:inputType="textPassword"
+        android:hint="Enter the Password"
+        android:background="@android:drawable/editbox_background"
+        android:layout_width="match_parent"
+        android:textColor="@android:color/background_dark"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/e1" />
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/t3"
+        android:layout_marginTop="20dp">
+        <Button
+            android:id="@+id/button1"
+            android:layout_below="@id/t3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:text="Submit"
+            android:textStyle="bold"
+            android:onClick="submit"/>
+        <Button
+            android:id="@+id/button2"
+            android:layout_below="@id/t3"
+            android:layout_toRightOf="@id/button1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:text="Cancel"
+            android:textStyle="bold"
+            android:onClick="cancel"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/button3"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textStyle="bold"
+        android:text="NEW USER?"
+        android:onClick="newUser"/>
+
+</RelativeLayout>
+
