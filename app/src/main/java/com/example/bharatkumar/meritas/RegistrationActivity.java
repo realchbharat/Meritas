@@ -50,7 +50,12 @@ public class RegistrationActivity extends AppCompatActivity {
         boolean dbAdded=myRegistrationDB.addAccount(account);
 
         if(dbAdded)
-            Toast.makeText(this,"data is submitted",Toast.LENGTH_SHORT).show();
+        {
+            Intent intent=new Intent(this,MainActivity.class);
+            Toast.makeText(this, "Registration completed successfully", Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+            finish();
+        }
 
         else
             Toast.makeText(this,"username already exsists",Toast.LENGTH_SHORT).show();

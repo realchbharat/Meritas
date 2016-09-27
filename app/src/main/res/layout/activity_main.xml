@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
     <EditText
-        android:id="@+id/e1"
+        android:id="@+id/userNameEditText"
         android:layout_toRightOf="@id/t2"
         android:layout_alignBaseline="@id/t2"
         android:hint="Enter the UserName"
@@ -61,16 +61,16 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:text=" PASSWORD:"/>
     <EditText
-        android:id="@+id/e2"
+        android:id="@+id/passwordEditText"
         android:layout_alignBaseline="@id/t3"
-        android:layout_alignStart="@id/e1"
+        android:layout_alignStart="@id/userNameEditText"
         android:inputType="textPassword"
         android:hint="Enter the Password"
         android:background="@android:drawable/editbox_background"
         android:layout_width="match_parent"
         android:textColor="@android:color/background_dark"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/e1" />
+        android:layout_alignLeft="@id/userNameEditText" />
     <LinearLayout
         android:id="@+id/l1"
         android:layout_width="match_parent"
@@ -86,7 +86,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:text="Submit"
             android:textStyle="bold"
-            android:onClick="submit"/>
+            android:onClick="login"/>
         <Button
             android:id="@+id/button2"
             android:layout_below="@id/t3"

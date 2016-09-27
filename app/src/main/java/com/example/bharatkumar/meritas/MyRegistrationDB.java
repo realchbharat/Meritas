@@ -62,7 +62,7 @@ public class MyRegistrationDB extends SQLiteOpenHelper {
             values.put(COLUMN_USERPASSWORD, accounts.get_password());
         try {
             SQLiteDatabase db = getWritableDatabase();
-            db.insert(TABLE_ACCOUNTS, null, values);
+            db.insertOrThrow(TABLE_ACCOUNTS, null, values);
             db.close();
             }
         catch (SQLiteConstraintException e)
@@ -80,6 +80,25 @@ public class MyRegistrationDB extends SQLiteOpenHelper {
     {
         SQLiteDatabase db=getWritableDatabase();
         db.execSQL("DELETE FROM "+ TABLE_ACCOUNTS +" WHERE "+ COLUMN_USERNAME + "=\"" + userName + "\";");
+    }
+
+    public RegisteredAccounts findPassword(String uname){
+        RegisteredAccounts account=new RegisteredAccounts();
+        String dbString = "";
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_ACCOUNTS + " WHERE username="+"'"+uname+"'";
+
+        //Cursor points to a location in your results
+        Cursor c = db.rawQuery(query, null);
+        //Move to the first row in your results
+        c.moveToFirst();
+        dbString = c.getString(c.getColumnIndex("firstname"));
+        account.set_firstname(dbString);
+        dbString = c.getString(c.getColumnIndex("userpassword"));
+        account.set_password(dbString);
+        db.close();
+
+        return account;
     }
 
     public String databaseToString(){

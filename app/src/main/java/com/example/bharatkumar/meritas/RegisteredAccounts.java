@@ -11,6 +11,9 @@ public class RegisteredAccounts {
     private String _username;
     private String _password;
 
+    public RegisteredAccounts() {
+    }
+
     public RegisteredAccounts(String _firstname, String _lastname, String _phone, String _email, String _username, String _password)
     {
         this._firstname = _firstname;
