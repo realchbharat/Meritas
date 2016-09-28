@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class MyStudentDB extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION=1;
-    private static final String DATABASE_NAME="studentDB.db";
     public static final String TABLE_ACCOUNTS="student_accounts";
     public static final String COLUMN_STUDENTNAME="studentname";
     public static final String COLUMN_ADDRESS="address";
@@ -27,11 +26,12 @@ public class MyStudentDB extends SQLiteOpenHelper {
 
 
     public MyStudentDB(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+        super(context, name, factory, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+
 
         String query="CREATE TABLE " +  TABLE_ACCOUNTS + "(" +
                 COLUMN_STUDENTNAME + " TEXT PRIMARY KEY, "+
@@ -114,5 +114,41 @@ public class MyStudentDB extends SQLiteOpenHelper {
         return accounts;
     }
 
-}
 
+
+    public StudentAccounts findData(String uname)
+    {
+        StudentAccounts accounts= new StudentAccounts();
+        SQLiteDatabase db=getWritableDatabase();
+        String query="SELECT * FROM "+ TABLE_ACCOUNTS +" WHERE studentname=" + "'"+uname+"'";
+
+        Cursor c=db.rawQuery(query,null);
+        c.moveToFirst();
+
+            if(c.getString(c.getColumnIndex("studentname"))!=null)
+            {
+
+                accounts.set_studentname(c.getString(c.getColumnIndex("studentname")));
+                accounts.set_phone(c.getString(c.getColumnIndex("phone")));
+                accounts.set_email(c.getString(c.getColumnIndex("email")));
+                accounts.set_address(c.getString(c.getColumnIndex("address")));
+                accounts.set_course(c.getString(c.getColumnIndex("course")));
+
+
+            }
+        db.close();
+        return accounts;
+    }
+
+    public boolean updateContact(String sname, String phno, String email,String address,String course)
+    {
+        SQLiteDatabase db=getWritableDatabase();
+        ContentValues args = new ContentValues();
+        args.put(COLUMN_PHONE, phno);
+        args.put(COLUMN_EMAIL, email);
+        args.put(COLUMN_ADDRESS,address);
+        args.put(COLUMN_COURSE,course);
+        return db.update(TABLE_ACCOUNTS, args, COLUMN_STUDENTNAME + "=" +"'"+ sname+"'", null) > 0;
+    }
+
+}

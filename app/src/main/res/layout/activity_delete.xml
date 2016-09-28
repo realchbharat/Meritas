@@ -53,19 +53,10 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:text="Submit"
+            android:text="Delete"
             android:textStyle="bold"
-            android:onClick="submit"/>
-        <Button
-            android:id="@+id/button2"
-            android:layout_toRightOf="@id/button1"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:text="Cancel"
-            android:textStyle="bold"
-            android:onClick="cancel"/>
+            android:onClick="delete"/>
+
     </LinearLayout>
 
 </RelativeLayout>

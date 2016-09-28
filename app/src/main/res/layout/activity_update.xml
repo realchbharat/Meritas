@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#0097A7"
-    tools:context=".UpdateActivity">
+    tools:context="com.example.bharatkumar.meritas.UpdateActivity">
 
     <TextView
         android:id="@+id/Heading"
@@ -46,9 +46,9 @@
         android:layout_height="wrap_content"
         android:textColor="#ffffff"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:text=" Address :"/>
+        android:text=" PhoneNo :"/>
     <EditText
-        android:id="@+id/addressEditText"
+        android:id="@+id/phoneEditText"
         android:layout_alignBaseline="@id/lastNameText"
         android:layout_alignStart="@id/studentNameEditText"
         android:hint="Enter the Location"
@@ -62,15 +62,15 @@
         android:id="@+id/phoneText"
         android:layout_below="@id/lastNameText"
         android:textColor="#ffffff"
-        android:text=" PhoneNo  :"
+        android:text=" Email-id  :"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
     <EditText
-        android:id="@+id/phoneEditText"
+        android:id="@+id/emailEditText"
         android:layout_alignBaseline="@id/phoneText"
-        android:layout_alignRight="@id/addressEditText"
-        android:layout_alignLeft="@id/addressEditText"
+        android:layout_alignRight="@id/phoneEditText"
+        android:layout_alignLeft="@id/phoneEditText"
         android:hint="enter phone number"
         android:textColor="@android:color/background_dark"
         android:background="@android:drawable/editbox_background"
@@ -81,15 +81,15 @@
         android:id="@+id/emailText"
         android:layout_below="@id/phoneText"
         android:textColor="#ffffff"
-        android:text=" Email-id  : "
+        android:text=" Address  : "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
     <EditText
-        android:id="@+id/emailEditText"
+        android:id="@+id/addressEditText"
         android:layout_alignBaseline="@id/emailText"
-        android:layout_alignRight="@id/addressEditText"
-        android:layout_alignLeft="@id/addressEditText"
+        android:layout_alignRight="@id/emailEditText"
+        android:layout_alignLeft="@id/emailEditText"
         android:hint="enter email id"
         android:textColor="@android:color/background_dark"
         android:background="@android:drawable/editbox_background"
@@ -128,9 +128,9 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:text="Cancel"
+            android:text="Find"
             android:textStyle="bold"
-            android:onClick="cancel"
+            android:onClick="find"
             />
 
         <Button
@@ -139,8 +139,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:text="Submit"
-            android:onClick="submit"
+            android:text="Update"
+            android:onClick="update"
             android:textStyle="bold"
             />
 

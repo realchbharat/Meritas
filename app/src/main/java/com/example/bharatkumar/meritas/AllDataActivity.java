@@ -16,7 +16,7 @@ public class AllDataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_data);
 
-        myStudentDB=new MyStudentDB(this,null,null,1);
+        myStudentDB=new MyStudentDB(this,Singleton.getInstance().getString()+"studentDB.db",null,1);
         ArrayList<StudentAccounts> account=myStudentDB.allData();
 
         CustomAdapter adapter= new CustomAdapter(this,account);

@@ -20,7 +20,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         textView= (TextView) findViewById(R.id.textView);
         ListView listView=(ListView) findViewById(R.id.list1);
-        textView.setText("Welcome to Meritas "+getIntent().getStringExtra("text").toUpperCase());
+        textView.setText("Welcome to Meritas "+Singleton.getInstance().getString().toUpperCase());
         String[] options={"Add Student","Delete Student","Update Student","Show All Students","Log Out"};
 
         /*ArrayList<String> options=new ArrayList<String>();
@@ -41,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
                 {
                     case 0:Intent addIntent=new Intent(HomeActivity.this,AddStudentActivity.class);
                             startActivity(addIntent);
+                            finish();
                             break;
                     case 1:Intent deleteIntent=new Intent(HomeActivity.this,DeleteActivity.class);
                             startActivity(deleteIntent);

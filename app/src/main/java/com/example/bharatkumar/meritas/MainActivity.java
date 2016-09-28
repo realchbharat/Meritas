@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         if(passWord.equals(account.get_password()) && !account.get_password().equals(null))
         {
             Intent intent=new Intent(view.getContext(),HomeActivity.class);
-            intent.putExtra("text", account.get_firstname());
+            Singleton.getInstance().setString(account.get_firstname());
             startActivity(intent);
             finish();
         }

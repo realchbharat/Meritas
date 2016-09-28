@@ -21,7 +21,7 @@ public class AddStudentActivity extends AppCompatActivity {
         email= (EditText) findViewById(R.id.emailEditText);
         address=(EditText)findViewById(R.id.addressEditText);
         course= (EditText) findViewById(R.id.courseEditText);
-        myStudentDB=new MyStudentDB(this,null,null,1);
+        myStudentDB=new MyStudentDB(this,Singleton.getInstance().getString()+"studentDB.db",null,1);
     }
 
     public void cancel(View view)
@@ -34,11 +34,11 @@ public class AddStudentActivity extends AppCompatActivity {
 
     public void submit(View view)
     {
-        StudentAccounts accounts=new StudentAccounts(sname.getText().toString(),phno.getText().toString(),
+        StudentAccounts account=new StudentAccounts(sname.getText().toString(),phno.getText().toString(),
                                                         email.getText().toString(),address.getText().toString()
                                                         ,course.getText().toString());
 
-        boolean check=myStudentDB.addAccount(accounts);
+        boolean check=myStudentDB.addAccount(account);
 
         if(check)
         {
