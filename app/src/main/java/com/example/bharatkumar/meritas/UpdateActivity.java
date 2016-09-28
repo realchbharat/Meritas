@@ -3,11 +3,11 @@ package com.example.bharatkumar.meritas;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class AddActivity extends AppCompatActivity {
+public class UpdateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add);
+        setContentView(R.layout.activity_update);
     }
 }

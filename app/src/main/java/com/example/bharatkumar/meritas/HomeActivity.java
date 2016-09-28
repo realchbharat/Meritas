@@ -10,8 +10,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 public class HomeActivity extends AppCompatActivity {
     TextView textView;
 
@@ -22,7 +20,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         textView= (TextView) findViewById(R.id.textView);
         ListView listView=(ListView) findViewById(R.id.list1);
-        textView.setText(getIntent().getStringExtra("text")+" Welocme to Meritas");
+        textView.setText("Welcome to Meritas "+getIntent().getStringExtra("text").toUpperCase());
         String[] options={"Add Student","Delete Student","Update Student","Show All Students","Log Out"};
 
         /*ArrayList<String> options=new ArrayList<String>();
@@ -41,21 +39,17 @@ public class HomeActivity extends AppCompatActivity {
 
                 switch (i)
                 {
-                    case 0:Intent addIntent=new Intent(HomeActivity.this,AddActivity.class);
+                    case 0:Intent addIntent=new Intent(HomeActivity.this,AddStudentActivity.class);
                             startActivity(addIntent);
-                            finish();
                             break;
                     case 1:Intent deleteIntent=new Intent(HomeActivity.this,DeleteActivity.class);
                             startActivity(deleteIntent);
-                            finish();
                             break;
-                    case 2:Intent deleteIntent=new Intent(HomeActivity.this,DeleteActivity.class);
-                            startActivity(deleteIntent);
-                            finish();
+                    case 2:Intent updateIntent=new Intent(HomeActivity.this,UpdateActivity.class);
+                            startActivity(updateIntent);
                             break;
-                    case 3:Intent deleteIntent=new Intent(HomeActivity.this,DeleteActivity.class);
-                            startActivity(deleteIntent);
-                            finish();
+                    case 3:Intent allIntent=new Intent(HomeActivity.this,AllDataActivity.class);
+                            startActivity(allIntent);
                             break;
 
                     default:Intent logOutIntent=new Intent(HomeActivity.this,MainActivity.class);

@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         String userName=username.getText().toString();
         String passWord=password.getText().toString();
         RegisteredAccounts account=myRegistrationDB.findPassword(userName);
-        if(passWord.equals(account.get_password()))
+
+        if(passWord.equals(account.get_password()) && !account.get_password().equals(null))
         {
             Intent intent=new Intent(view.getContext(),HomeActivity.class);
             intent.putExtra("text", account.get_firstname());

@@ -3,6 +3,7 @@ package com.example.bharatkumar.meritas;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -71,6 +72,8 @@ public class MyRegistrationDB extends SQLiteOpenHelper {
             System.out.println(e);
 
         }
+
+
         return dbAccepter;
 
 
@@ -82,26 +85,37 @@ public class MyRegistrationDB extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM "+ TABLE_ACCOUNTS +" WHERE "+ COLUMN_USERNAME + "=\"" + userName + "\";");
     }
 
-    public RegisteredAccounts findPassword(String uname){
-        RegisteredAccounts account=new RegisteredAccounts();
-        String dbString = "";
-        SQLiteDatabase db = getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_ACCOUNTS + " WHERE username="+"'"+uname+"'";
+    public RegisteredAccounts findPassword(String uname)
+    {
+        RegisteredAccounts account = new RegisteredAccounts();
+        try {
+            String dbString = "";
+            SQLiteDatabase db = getWritableDatabase();
+            String query = "SELECT * FROM " + TABLE_ACCOUNTS + " WHERE username=" + "'" + uname + "'";
 
-        //Cursor points to a location in your results
-        Cursor c = db.rawQuery(query, null);
-        //Move to the first row in your results
-        c.moveToFirst();
-        dbString = c.getString(c.getColumnIndex("firstname"));
-        account.set_firstname(dbString);
-        dbString = c.getString(c.getColumnIndex("userpassword"));
-        account.set_password(dbString);
-        db.close();
+            //Cursor points to a location in your results
+            Cursor c = db.rawQuery(query, null);
+            //Move to the first row in your results
+            c.moveToFirst();
+            dbString = c.getString(c.getColumnIndex("firstname"));
+            account.set_firstname(dbString);
+            dbString = c.getString(c.getColumnIndex("userpassword"));
+            account.set_password(dbString);
+            db.close();
+            return account;
+        }
+        catch (Exception e)
+        {
+            account.set_firstname(null);
+            account.set_password(null);
+            return account;
+        }
 
-        return account;
+
     }
 
-    public String databaseToString(){
+    public String databaseToString()
+    {
         String dbString="";
         SQLiteDatabase db=getWritableDatabase();
         String query="SELECT * FROM "+ TABLE_ACCOUNTS +" WHERE 1";
